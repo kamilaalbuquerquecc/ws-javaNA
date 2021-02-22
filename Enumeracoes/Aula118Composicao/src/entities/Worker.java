@@ -39,7 +39,7 @@ public class Worker {
 	}
 	
 	public double income(Integer year, Integer month) {
-		double sum = baseSalary;
+		double sum = baseSalary; //salario base do mes
 		Calendar cal = Calendar.getInstance();
 		//buscar valoes dos contratos do mês pra acrescentar ao salario.
 		for(HourContract c : contracts) {
