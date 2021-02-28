@@ -8,6 +8,7 @@ import java.util.Date;
 public class Aula102{
 
 	public static void main(String[] args) throws ParseException {
+		
 		SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy");
 		SimpleDateFormat sdf2 = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 		
