@@ -3,6 +3,11 @@ package entities;
 public class Product {
 	private String name;
 	private double price;
+	public Product(String name, double price) {
+		super();
+		this.name = name;
+		this.price = price;
+	}
 	
 	public String getName() {
 		return name;
@@ -16,14 +21,8 @@ public class Product {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	public Product() {
-		
-	}
-	public Product(String name, double price) {
-		super();
-		this.name = name;
-		this.price = price;
-	}
+
+	
 	
 
 }

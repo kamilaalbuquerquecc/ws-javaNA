@@ -6,13 +6,11 @@ public class OrderItem {
 	
 	private Product product;
 
-	public OrderItem() {
-	}
-	
-	public OrderItem(Integer quantity, double price) {
+	public OrderItem(Integer quantity, double price, Product produto) {
 		super();
 		this.quantity = quantity;
 		this.price = price;
+		this.product = produto;
 	}
 	
 	
@@ -44,6 +42,15 @@ public class OrderItem {
 	public double subTotal() {
 		return price*quantity;
 		
+	}
+	public String toString() {
+		return product.getName() 
+				+ ", $" 
+				+ String.format("%.2f", price) 
+				+ ", Quantity: " 
+				+ quantity + 
+				", Subtotal: $" 
+				+ String.format("%.2f", subTotal());
 	}
 
 }

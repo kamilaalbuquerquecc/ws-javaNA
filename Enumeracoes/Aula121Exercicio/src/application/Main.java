@@ -6,6 +6,10 @@ import java.util.Date;
 import java.util.Scanner;
 
 import entities.Client;
+import entities.Order;
+import entities.OrderItem;
+import entities.Product;
+import entities.enums.OrderStatus;
 
 
 /*Ler os dados de um pedido com N itens (N fornecido pelo usuário). Depois, mostrar um
@@ -15,6 +19,7 @@ o instante do sistema: new Date()
 public class Main {
 
 	public static void main(String[] args) throws ParseException {
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 		
@@ -27,9 +32,15 @@ public class Main {
 		String email = sc.nextLine();
 		System.out.print("Birth date (DD/MM/YYYY): ");
 		Date date = sdf.parse(sc.next());
-		//String dt =sdf.format(date);
+		sc.nextLine();
+		
+		client = new Client(name, email, date);
+		
 		System.out.print("Status: ");
-		String status = sc.nextLine();
+		OrderStatus status = OrderStatus.valueOf(sc.nextLine());
+		
+		Order order = new Order(new Date(), status, client);
+		
 		System.out.print("How many items to this order? ");
 		int n = sc.nextInt();
 		for (int i =0; i<n; i++) {
@@ -37,12 +48,33 @@ public class Main {
 			String nameProd = sc.next();
 			System.out.print("Product price: ");
 			Double price = sc.nextDouble();
+			
+			Product product = new Product(nameProd, price);
+			
 			System.out.print("Quantity: ");
-			Integer quant = sc.nextInt();
+			int quant = sc.nextInt();
+			
+			OrderItem item = new OrderItem(quant,price,product);
+			
+			order.addItem(item);
 		}
-		System.out.println("ORDER SUMMARY:");
+		
+		System.out.println(order);
+		
 		
 
 	}
 
-}
+}/*
+kamila
+kamila@eu
+09/01/1998
+PROCESSING
+2
+TV
+1000
+1
+mouse
+40
+2
+*/
