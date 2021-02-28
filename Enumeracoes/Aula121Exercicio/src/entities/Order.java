@@ -10,17 +10,23 @@ public class Order {
 	private Date moment;
 	private OrderStatus status;
 	
+	private Client client;
 	private List<OrderItem> orderItem = new ArrayList<>();
 	
 	public Order() {
 		
 	}
 	
-	public Order(Date moment, OrderStatus status, List<OrderItem> orderItem) {
+
+	public Order(Date moment, OrderStatus status, Client client, List<OrderItem> orderItem) {
 		super();
 		this.moment = moment;
 		this.status = status;
+		this.client = client;
+		this.orderItem = orderItem;
 	}
+
+
 
 	public Date getMoment() {
 		return moment;
