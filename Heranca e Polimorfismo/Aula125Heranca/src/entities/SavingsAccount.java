@@ -1,7 +1,5 @@
 package entities;
-/*poupanca
- * 
- */
+// final, classe que não pode ser herdada
 public class SavingsAccount extends Account  {
 	private Double interestRate; //taxa de juros
 	
@@ -26,7 +24,7 @@ public class SavingsAccount extends Account  {
 	}
 	
 	@Override
-	public void withdraw (Double amount) {
+	public final void withdraw (Double amount) {
 		balance -= amount ;
 	}
 

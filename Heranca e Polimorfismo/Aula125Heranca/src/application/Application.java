@@ -39,6 +39,7 @@ public class Application {
 			System.out.println("Update!");
 		}
 		//testando a sobreposição de metodos em saque
+		System.out.println("//testando a sobreposição de metodos em saque");
 		Account acc10 = new Account(1001, "Alex", 1000.0);
 		acc10.withdraw(200.0);
 		System.out.println(acc10.getBalance());
@@ -50,6 +51,14 @@ public class Application {
 		Account acc30 = new BusinessAccount(1003, "Bob", 1000.0, 500.0);
 		acc30.withdraw(200.0);
 		System.out.println(acc30.getBalance());
+		//testando POLIMORFISMO
+		System.out.println("//testando POLIMORFISMO");
+		Account x = new Account(1020, "Alex", 1000.0);
+		Account y = new SavingsAccount(1023, "Maria", 1000.0, 0.01);
+		x.withdraw(50.0);
+		y.withdraw(50.0);
+		System.out.println(x.getBalance());
+		System.out.println(y.getBalance());
 
 	}
 
