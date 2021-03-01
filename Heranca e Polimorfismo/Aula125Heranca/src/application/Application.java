@@ -4,7 +4,7 @@ import entities.Account;
 import entities.BusinessAccount;
 import entities.SavingsAccount;
 
-public class application {
+public class Application {
 
 	public static void main(String[] args) {
 		Account acc = new Account(1001, "Alex", 0.0);
@@ -27,8 +27,7 @@ public class application {
 		acc4.loan(100.0);
 		
 		/*Se acc3 for instanciavel por BusinessAccount
-		 * acc3 é do tipo SavingsAccounts
-		 */
+		 * acc3 é do tipo SavingsAccounts*/
 		if(acc3 instanceof BusinessAccount) {
 			BusinessAccount acc5 = (BusinessAccount)acc3;
 			acc5.loan(200.0);
@@ -39,6 +38,18 @@ public class application {
 			acc5.updateBalance();
 			System.out.println("Update!");
 		}
+		//testando a sobreposição de metodos em saque
+		Account acc10 = new Account(1001, "Alex", 1000.0);
+		acc10.withdraw(200.0);
+		System.out.println(acc10.getBalance());
+		
+		Account acc20 = new SavingsAccount(1002, "Maria", 1000.0, 0.01);
+		acc20.withdraw(200.0);
+		System.out.println(acc20.getBalance());
+		
+		Account acc30 = new BusinessAccount(1003, "Bob", 1000.0, 500.0);
+		acc30.withdraw(200.0);
+		System.out.println(acc30.getBalance());
 
 	}
 

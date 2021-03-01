@@ -1,5 +1,5 @@
 package entities;
-
+//conta empresarial
 public class BusinessAccount extends Account {
 	private Double loanLimit; //emprestimo limite
 	
@@ -24,9 +24,16 @@ public class BusinessAccount extends Account {
 	public void loan(Double amount) {
 		if (amount <= loanLimit) {
 			balance+=amount -10;
-		}
-		 
+		} 
 	 }
+	
+	/*Exemplo: suponha que, na classe BusinessAccount, a regra para saque seja realizar o
+	 * saque normalmente da superclasse, e descontar mais 2.0.*/
+	@Override
+	public void withdraw (Double amount) {
+		super.withdraw(amount); //exemplo de usar super
+		balance -= 2.0;
+	}
 
 	
 
